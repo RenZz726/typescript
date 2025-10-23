@@ -5,7 +5,15 @@ const toogle = document.getElementById("display");
 
 const list = [];
 const localData = localStorage.getItem("data");
-console.log(localData);
+result = JSON.stringify(localData).replaceAll('"', "");
+result = result.split(",");
+
+// const result = JSON.stringify(localData).split(",");
+// console.log(result.splice(1, result.lenght - 1));
+for (item of result) {
+  output.insertAdjacentHTML("beforeend", `<li class="list">${item}</li>`);
+  input.value = "";
+}
 
 button.addEventListener("click", () => {
   output.textContent = "";
@@ -13,13 +21,11 @@ button.addEventListener("click", () => {
 
   localStorage.setItem("data", list);
 
-  console.log(list);
+  // console.log(list);
   for (item of list) {
     output.insertAdjacentHTML("beforeend", `<li class="list">${item}</li>`);
     input.value = "";
   }
-  const li = document.querySelectorAll(".list");
-  console.log(li);
 });
 
 output.addEventListener("click", (e) => {

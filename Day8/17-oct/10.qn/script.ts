@@ -2,7 +2,7 @@ function remove(e) {
   e.target.remove();
 }
 function showImage() {
-  const inputImages = document.getElementById("inputImages");
+  const inputImages = document.getElementById("inputImages" : string): HTMLElement | null;
   const imageDisplay = document.getElementById("imagesDisplay");
   const imagePaths = inputImages.files;
 

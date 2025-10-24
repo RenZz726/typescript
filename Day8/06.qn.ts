@@ -5,12 +5,27 @@ enum Direction {
   Right = "Right",
 }
 
-function takesDirection(direction: string): any {
-  if (direction === "Up") return `You moved ${Direction.Up}`;
-  else if (direction === "Down") return `You moved ${Direction.Down}`;
-  else if (direction === "Left") return `You moved ${Direction.Left}`;
-  else if (direction === "Right") return `You moved ${Direction.Right}`;
+function takesDirection(direction: Direction): string {
+  return `You moved ${direction}`;
 }
 
-console.log(takesDirection("Up"));
-console.log(takesDirection("Down"));
+console.log(takesDirection(Direction.Up));
+console.log(takesDirection(Direction.Down));
+
+// or
+
+// enum Direction {
+//   Up = "Up",
+//   Down = "Down",
+//   Left = "Left",
+//   Right = "Right",
+// }
+
+// const { Up, Down, Left, Right } = Direction;
+
+// function takesDirection(direction: Direction): string {
+//   return `You moved ${direction}`;
+// }
+
+// console.log(takesDirection(Up));
+// console.log(takesDirection(Down));

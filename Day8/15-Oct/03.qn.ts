@@ -1,21 +1,40 @@
-function newArray(arr: obj[]): obj[] {
-  let newArr: obj[] = [];
-  for (let item of arr) {
-    let obj: obj = {};
-    if (item.marks  > 48) {
-      obj = { name: item.name, status: "Pass" };
-    } else {
-      obj = { name: item.name, status: "Fail" };
-    }
-    newArr.push(obj);
-  }
-  return newArr;
+// type Student = { name: string; marks: number };
+// type Result = { name: string; status: "pass" | "fail" };
+// function getResults(arr: Student[]): Result[] {
+//   let newArr: Result[] = [];
+//   for (let item of arr) {
+//     let obj: Result;
+//     if (item.marks > 48) {
+//       obj = { name: item.name, status: "pass" };
+//     } else {
+//       obj = { name: item.name, status: "fail" };
+//     }
+//     newArr.push(obj);
+//   }
+//   return newArr;
+// }
+
+// let students: Student[] = [
+//   { name: "Alice", marks: 42 },
+//   { name: "Bob", marks: 67 },
+//   { name: "Charlie", marks: 35 },
+// ];
+
+// console.log(getResults(students));
+
+type Student = { name: string; marks: number };
+type Result = { name: string; status: "pass" | "fail" };
+function getResults(arr: Student[]): Result[] {
+  return arr.map((item) => ({
+    name: item.name,
+    status: item.marks > 48 ? "pass" : "fail",
+  }));
 }
-type obj = { name?: string; marks?: number; status?: string };
-let students: obj[] = [
+
+let students: Student[] = [
   { name: "Alice", marks: 42 },
   { name: "Bob", marks: 67 },
   { name: "Charlie", marks: 35 },
 ];
 
-console.log(newArray(students));
+console.log(getResults(students));
